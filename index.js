@@ -1,8 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateTeamProfile = require('./generateTeamProfile')
-const Manager = require('./classes/Manager');
 
+const generateTeamProfile = require('./generateTeamProfile');
+
+const Manager = require('./classes/Manager');
+const Engineer = require('./classes/Engineer');
+const Intern = require('./classes/Intern');
+
+const teamCards =[];
 
 //function to write to file
 function writeToFile(fileName, data) {
@@ -17,38 +22,32 @@ function init() {
         .prompt([
             {
                 type: 'input',
-                message: "Name: ",
+                message: "Manager's name: ",
                 name: 'name',
             },
             {
                 type: 'input',
-                message: "Employee ID: ",
+                message: "Manager's ID: ",
                 name: 'id',
             },
             {
                 type: 'input',
-                message: "Email: ",
+                message: "Manager's email: ",
                 name: 'email',
             },
             {
                 type: 'input',
-                message: "Office Number: ",
+                message: "Manager's Office Number: ",
                 name: 'number',
             },
-            {
-                type: 'list',
-                message: "Select an option from the list below",
-                name: 'menu',
-                choices: ['Engineer','Intern','Exit'],
-            },
+
         ])
         .then((response) => {
-            console.log ("response: ",response);
             const manager = new Manager(response.name, response.id, response.email, response.number);
-            console.log(manager.getName());
-            const teamProfile = generateTeamProfile(response);
-            writeToFile("index.html", teamProfile);
+            teamCards.push(manager);
         });
+
+        
 }
 // Function call to initialize app
 init();
