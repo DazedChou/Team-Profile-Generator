@@ -3,6 +3,9 @@ const Employee = require("./Employee");
 class Intern extends Employee {
     constructor(name, id, email, school){
         super(name, id, email);
+        if(!school){
+            throw new Error("You are missing a school")
+        }
         this.school = school;
     }
     getSchool() {
