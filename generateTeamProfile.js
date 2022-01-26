@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+
+function generateTeamProfile(response){
+    var teamProfile = `<!DOCTYPE html>
     <html>
     
     <head>
@@ -22,11 +25,11 @@
     
             <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Ash <br> Manager </h5>
+                    <h5 class="card-title">${response.name} <br> Manager </h5>
                     <ul class="list-group">
-                        <li class="list-group-item">ID: 123</li>
-                        <li class="list-group-item">EMAIL: @gmail.com</li>
-                        <li class="list-group-item">Office Number: 911</li>
+                        <li class="list-group-item">ID: ${response.id}</li>
+                        <li class="list-group-item">EMAIL: ${response.email}</li>
+                        <li class="list-group-item">Office Number: ${response.number}</li>
                       </ul>
                 </div>
             </div>
@@ -34,4 +37,9 @@
         </div>
     </body>
     
-    </html>
+    </html>`
+
+    return teamProfile;
+}
+
+module.exports = generateTeamProfile;
