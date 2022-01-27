@@ -2,11 +2,11 @@ const instManager = (manager) => {
     return `
     <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${manager.name} <br> Manager </h5>
+                    <h5 class="card-title">${manager.name} <br> ${manager.getRole()} </h5>
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${manager.id}</li>
                         <li class="list-group-item">EMAIL: ${manager.email}</li>
-                        <li class="list-group-item">Office Number: ${manager.number}</li>
+                        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
                       </ul>
                 </div>
             </div>`
@@ -16,7 +16,7 @@ const instEngineer = (engineer) => {
     return `
     <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${engineer.name} <br> ${engineer.role} </h5>
+                    <h5 class="card-title">${engineer.name} <br> ${engineer.getRole()} </h5>
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${engineer.id}</li>
                         <li class="list-group-item">EMAIL: ${engineer.email}</li>
@@ -30,7 +30,7 @@ const instIntern = (intern) => {
     return `
     <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${intern.name} <br> ${intern.role} </h5>
+                    <h5 class="card-title">${intern.name} <br> ${intern.getRole()} </h5>
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${intern.id}</li>
                         <li class="list-group-item">EMAIL: ${intern.email}</li>
@@ -44,7 +44,7 @@ const instIntern = (intern) => {
 generatePage = (objArray) => {
     let cards = '';
     for (let i = 0 ; i < objArray.length ; i++){
-        const employee = objArray[i];
+        const employee = objArray[i]; //setting employee to the object
         const role = employee.getRole();
 
         if(role == "Manager"){
