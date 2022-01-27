@@ -21,18 +21,50 @@ function generateTeamProfile(response){
         <div class="jumbotron bg-dark m-4 p-4 text-center text-white">
             <h1 class="display-4">My Team</h1>
         </div>
-        <div id="team" class="d-flex flex-wrap justify-content-center">
-    
+        <div id="team" class="d-flex flex-wrap justify-content-center">`;
+
+        //ADD TEAM CARDS
+        for (let i = 0 ; i < teamCards.length ; i++){
+            if (teamCards[i] == 'manager'){
+                teamProfile += `
             <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${response.name} <br> Manager </h5>
+                    <h5 class="card-title">${teamCards[i].name} <br> Manager </h5>
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${response.id}</li>
-                        <li class="list-group-item">EMAIL: ${response.email}</li>
-                        <li class="list-group-item">Office Number: ${response.number}</li>
+                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
+                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
+                        <li class="list-group-item">Office Number: ${teamCards[i].number}</li>
                       </ul>
                 </div>
-            </div>
+            </div>`
+            }else if(teamCards[i].role == 'Engineer'){
+                teamProfile += `
+            <div class="card mx-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${teamCards[i].name} <br> ${teamCards[i].getRole()} </h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
+                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
+                        <li class="list-group-item">Github: ${teamCards[i].github}</li>
+                      </ul>
+                </div>
+            </div>`
+            }else if(teamCards[i].role == 'Intern'){
+                teamProfile += `
+            <div class="card mx-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${teamCards[i].name} <br> ${teamCards[i].getRole()} </h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
+                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
+                        <li class="list-group-item">Github: ${teamCards[i].github}</li>
+                      </ul>
+                </div>
+            </div>`
+            }
+        }
+
+    teamProfile +=`
     
         </div>
     </body>

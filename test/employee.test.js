@@ -8,5 +8,6 @@ describe("Employee", () => {
         expect(person1.getId()).toEqual("Bacon");
         expect(person1.getEmail()).toEqual("chicken@foobar.com");
         expect(person1.getRole()).toEqual("Employee");
-    })
+    });
+    
 })
