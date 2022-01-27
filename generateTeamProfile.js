@@ -1,6 +1,71 @@
+const instManager = (manager) => {
+    return `
+    <div class="card mx-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${manager.name} <br> Manager </h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${manager.id}</li>
+                        <li class="list-group-item">EMAIL: ${manager.email}</li>
+                        <li class="list-group-item">Office Number: ${manager.number}</li>
+                      </ul>
+                </div>
+            </div>`
+}
 
+const instEngineer = (engineer) => {
+    return `
+    <div class="card mx-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${engineer.name} <br> Manager </h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${engineer.id}</li>
+                        <li class="list-group-item">EMAIL: ${engineer.email}</li>
+                        <li class="list-group-item">Github: ${engineer.github}</li>
+                      </ul>
+                </div>
+            </div>`
+}
 
-function generateTeamProfile(response){
+const instIntern = (intern) => {
+    return `
+    <div class="card mx-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${intern.name} <br> Manager </h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${intern.id}</li>
+                        <li class="list-group-item">EMAIL: ${intern.email}</li>
+                        <li class="list-group-item">School: ${intern.school}</li>
+                      </ul>
+                </div>
+            </div>`
+}
+
+//obj is an array of objects
+generatePage = (objArray) => {
+    let cards = '';
+    for (let i = 0 ; i < objArray.length ; i++){
+        const employee = objArray[i];
+        const role = employee.getRole();
+
+        if(role == "Manager"){
+            const managerCard = instManager(employee)
+            cards += managerCard;
+        }
+        if(role == "Engineer"){
+            const engineerCard = instEngineer(employee)
+            cards += engineerCard;
+        }
+        if(role == "Intern"){
+            const internCard = instIntern(employee)
+            cards += internCard;
+        }
+        
+    }
+    const generateTeam = generateTeamProfile(cards);
+    return generateTeam;
+}
+
+function generateTeamProfile(cards){
     var teamProfile = `<!DOCTYPE html>
     <html>
     
@@ -21,51 +86,8 @@ function generateTeamProfile(response){
         <div class="jumbotron bg-dark m-4 p-4 text-center text-white">
             <h1 class="display-4">My Team</h1>
         </div>
-        <div id="team" class="d-flex flex-wrap justify-content-center">`;
-
-        //ADD TEAM CARDS
-        for (let i = 0 ; i < teamCards.length ; i++){
-            if (teamCards[i] == 'manager'){
-                teamProfile += `
-            <div class="card mx-4" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">${teamCards[i].name} <br> Manager </h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
-                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
-                        <li class="list-group-item">Office Number: ${teamCards[i].number}</li>
-                      </ul>
-                </div>
-            </div>`
-            }else if(teamCards[i].role == 'Engineer'){
-                teamProfile += `
-            <div class="card mx-4" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">${teamCards[i].name} <br> ${teamCards[i].getRole()} </h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
-                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
-                        <li class="list-group-item">Github: ${teamCards[i].github}</li>
-                      </ul>
-                </div>
-            </div>`
-            }else if(teamCards[i].role == 'Intern'){
-                teamProfile += `
-            <div class="card mx-4" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">${teamCards[i].name} <br> ${teamCards[i].getRole()} </h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">ID: ${teamCards[i].id}</li>
-                        <li class="list-group-item">EMAIL: ${teamCards[i].email}</li>
-                        <li class="list-group-item">Github: ${teamCards[i].github}</li>
-                      </ul>
-                </div>
-            </div>`
-            }
-        }
-
-    teamProfile +=`
-    
+        <div id="team" class="d-flex flex-wrap justify-content-center">
+            ${cards}
         </div>
     </body>
     
@@ -74,4 +96,4 @@ function generateTeamProfile(response){
     return teamProfile;
 }
 
-module.exports = generateTeamProfile;
+module.exports = generatePage;
