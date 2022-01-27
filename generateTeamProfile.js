@@ -16,7 +16,7 @@ const instEngineer = (engineer) => {
     return `
     <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${engineer.name} <br> Manager </h5>
+                    <h5 class="card-title">${engineer.name} <br> ${engineer.role} </h5>
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${engineer.id}</li>
                         <li class="list-group-item">EMAIL: ${engineer.email}</li>
@@ -30,7 +30,7 @@ const instIntern = (intern) => {
     return `
     <div class="card mx-4" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${intern.name} <br> Manager </h5>
+                    <h5 class="card-title">${intern.name} <br> ${intern.role} </h5>
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${intern.id}</li>
                         <li class="list-group-item">EMAIL: ${intern.email}</li>

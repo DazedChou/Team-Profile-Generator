@@ -45,15 +45,14 @@ function init() {
         .then((response) => {
             const manager = new Manager(response.name, response.id, response.email, response.number);
             teamCards.push(manager);
+            console.log('manager: ',manager);
             addEmployee();
 
         });
 
 }
 const addEmployee = () => {
-    console.log(`===========
-Adding Employee
-===========`)
+    console.log(`==== Adding Employee ====`)
     inquirer
         .prompt([
             {
