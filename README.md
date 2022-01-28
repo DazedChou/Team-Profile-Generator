@@ -9,6 +9,11 @@ Open your command terminal and run 'npm install' in order to install the modules
 ### Demo
 * [Video Link](https://watch.screencastify.com/v/ZZtAoI3EEgJta9fBMkSU)
 
+### Screenshot
+
+Screenshot shows the generated team profile html page
+![](./Screenshot_1.jpg)
+
 ## Built With
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
