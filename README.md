@@ -7,8 +7,7 @@ This application allows a user to dynamically generate an html file by adding te
 Open your command terminal and run 'npm install' in order to install the modules needed for this application to run properly. Then run 'node index.js' to start the application, and respond to the given prompts.
 
 ### Demo
-
-* []({https://watch.screencastify.com/v/ZZtAoI3EEgJta9fBMkSU} "Video Link")
+* [Video Link](https://watch.screencastify.com/v/ZZtAoI3EEgJta9fBMkSU)
 
 ## Built With
 
